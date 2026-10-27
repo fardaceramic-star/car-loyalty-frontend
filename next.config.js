@@ -4,6 +4,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
+        hostname: 'car-loyalty-backend.onrender.com',
+        pathname: '/storage/**',
+      },
+      {
         protocol: 'http',
         hostname: '127.0.0.1',
         port: '8000',
@@ -15,19 +20,13 @@ const nextConfig = {
         port: '8000',
         pathname: '/storage/**',
       },
-      {
-        protocol: 'http',
-        hostname: '192.168.1.50', // IP کامپیوتر
-        port: '8000',
-        pathname: '/storage/**',
-      },
     ],
   },
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:8000/api/:path*',
+        destination: 'https://car-loyalty-backend.onrender.com/api/:path*',
       },
     ];
   },
